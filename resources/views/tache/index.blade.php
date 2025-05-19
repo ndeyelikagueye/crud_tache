@@ -9,7 +9,9 @@
         <tr>
             <th>Titre</th>
             <th>Description</th>
+            <th>Photo</th>
             <th>Actions</th>
+
         </tr>
         </thead>
         <tbody>
@@ -17,6 +19,13 @@
         <tr class="table-active">
             <td>{{$taches->titre}}</td>
             <td>{{$taches->description}}</td>
+            <td>
+                @if($taches->photo)
+                    <img src="{{ asset('storage/' . $taches->photo) }}" alt="Photo" width="100">
+                @else
+                    <span>Aucune photo</span>
+                @endif
+            </td>
             <td>
                 <a href="{{route('tache.edit',$taches->id)}}" class="btn btn-info">Modifier</a>
                 <form action="{{route('tache.destroy',$taches->id)}}" method="post" style="display: inline">

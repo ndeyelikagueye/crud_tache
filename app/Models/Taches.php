@@ -9,5 +9,6 @@ class Taches extends Model
     public $fillable = [
         'titre',
         'description',
+        'photo',
     ];
 }
